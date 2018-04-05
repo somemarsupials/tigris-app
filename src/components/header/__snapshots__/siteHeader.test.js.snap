@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SiteHeader matches snapshot 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/"
+  >
+    Home
+  </Link>
+</div>
+`;
