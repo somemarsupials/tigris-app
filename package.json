@@ -4,8 +4,8 @@
   "description": "-",
   "main": "index.js",
   "scripts": {
-    "run": "node_modules/.bin/webpack-dev-server --hot",
-    "test": "jest src/__tests__/**/*.js",
+    "start": "node_modules/.bin/webpack-dev-server --hot",
+    "test": "node_modules/.bin/jest --watch",
     "build": "node_modules/.bin/webpack"
   },
   "repository": {
@@ -17,7 +17,8 @@
   "dependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-router": "^4.2.0"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
