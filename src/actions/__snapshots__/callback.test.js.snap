@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`callback actions #failure dispatches action 1`] = `Array []`;
+
+exports[`callback actions #success dispatches action 1`] = `
+Array [
+  Array [
+    Object {
+      "data": Object {
+        "a": 1,
+      },
+      "type": "CALLBACK/SUCCESS",
+    },
+  ],
+]
+`;
