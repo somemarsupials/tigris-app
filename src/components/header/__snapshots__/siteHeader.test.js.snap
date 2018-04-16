@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SiteHeader matches snapshot 1`] = `
-<div>
+<div
+  className="nav"
+>
   <Link
     replace={false}
     to="/"
   >
     Home
   </Link>
+  <_default
+    href="http://localhost:5000/auth/spotify/authorise"
+    show="Login with Spotify"
+  />
 </div>
 `;
