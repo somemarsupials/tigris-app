@@ -7,6 +7,7 @@
     "start": "node_modules/.bin/webpack-dev-server --hot --port 3000",
     "test": "node_modules/.bin/jest --watch",
     "build": "node_modules/.bin/webpack",
+    "lint": "node_modules/.bin/eslint src",
     "css": "sass --watch src/scss/main.scss:src/css/main.css"
   },
   "repository": {
@@ -35,6 +36,9 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
+    "eslint-plugin-jest": "^21.15.0",
+    "eslint-plugin-react": "^7.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "react-hot-loader": "^4.0.0",
