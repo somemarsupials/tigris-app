@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function (props) {
+export default function () {
   return (
-    <div>
+    <div className="home">
       <h1>TIGRIS</h1>
     </div>
   );
-};
+}
