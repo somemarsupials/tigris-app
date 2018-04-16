@@ -2,6 +2,18 @@
 
 exports[`callback actions #failure dispatches action 1`] = `Array []`;
 
+exports[`callback actions #getToken when making fetch request makes correct API call 1`] = `
+Array [
+  Array [
+    Object {
+      "method": "get",
+      "url": "undefined/auth/spotify/token",
+      "withCredentials": true,
+    },
+  ],
+]
+`;
+
 exports[`callback actions #success dispatches action 1`] = `
 Array [
   Array [

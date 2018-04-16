@@ -26,7 +26,7 @@ describe('callback actions', () => {
 
   describe('#failure', () => {
     beforeEach(() => {
-      actions.failure({ error: 'problem' })
+      actions.failure({ error: 'problem' });
     });
 
     it('dispatches action', () => {
@@ -45,19 +45,35 @@ describe('callback actions', () => {
       };
     });
 
+    describe('when making fetch request', () => {
+      beforeEach(() => {
+        httpClient.mockReturnValue({ a: 1 });
+        actions.getToken('spotify', httpClient, outcomes)(dispatch);
+      });
+
+      it('makes correct API call', () => {
+        expect(httpClient.mock.calls).toMatchSnapshot();
+      });
+    });
+
     describe('when non-http error', () => {
       let error;
 
       beforeEach(() => {
         httpClient.mockImplementation(() => {
-          error = new Error();
+          error = new Error('message');
           throw error;
         });
         actions.getToken('spotify', httpClient, outcomes)(dispatch);
       });
 
       it('calls failure', () => {
-        expect(outcomes.failure).toHaveBeenCalledWith(error);
+        expect(outcomes.failure).toHaveBeenCalledWith({
+          status: 500,
+          data: {
+            error: 'message',
+          },
+        });
       });
 
       it('dispatches action', () => {

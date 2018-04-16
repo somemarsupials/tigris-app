@@ -15,14 +15,14 @@ function success(provider, data, store = localStorage) {
       data: data,
     });
   };
-};
+}
 
 function failure(error) {
   return {
     type: ACTIONS.FAILURE,
     error: error,
   };
-};
+}
 
 const OUTCOMES = {
   success: success,
@@ -37,15 +37,21 @@ function getToken(provider, httpClient = axios, outcomes = OUTCOMES) {
       response = await httpClient({
         method: 'get',
         url: `${env.api}/auth/${provider}/token`,
-        withCredentials: true
+        withCredentials: true,
       });
       return dispatch(outcomes.success(provider, response.data));
     }
     catch (error) {
-      return dispatch(outcomes.failure(error.response || error));
-    };
+      let data = error.response || {
+        status: 500,
+        data: {
+          error: error.message,
+        },
+      };
+      return dispatch(outcomes.failure(data));
+    }
   };
-};
+}
 
 export default {
   success,
