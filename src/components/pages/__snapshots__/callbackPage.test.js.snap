@@ -1,6 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CallbackPage matches snapshot 1`] = `
+exports[`CallbackPage when error matches snapshot 1`] = `
+<span>
+  error
+   | 
+  500
+</span>
+`;
+
+exports[`CallbackPage without error matches snapshot 1`] = `
 <span>
   Loading info...
 </span>
