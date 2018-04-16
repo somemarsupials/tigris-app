@@ -14,6 +14,7 @@ describe('CallbackContainer', () => {
       },
       getToken: jest.fn(),
     };
+    global.window.close = jest.fn();
   });
 
   describe('on mount', () => {
@@ -27,11 +28,36 @@ describe('CallbackContainer', () => {
   });
 
   describe('when rendering', () => {
-    it('matches snapshot', () => {
-      expect(shallow(<CallbackContainer {...props} />)).toMatchSnapshot();
+    describe('when successful', () => {
+      beforeEach(() => {
+        props.success = true;
+        shallow(<CallbackContainer {...props} />);
+      });
+
+      it('closes window', () => {
+        expect(global.window.close).toHaveBeenCalled();
+      });
+    });
+
+    describe('when unsuccessful', () => {
+      describe('with no error', () => {
+        it('matches snapshot', () => {
+          expect(shallow(<CallbackContainer {...props} />))
+            .toMatchSnapshot();
+        });
+      });
+
+      describe('with error', () => {
+        beforeEach(() => {
+          props.error = {
+          };
+        });
+
+        it('matches snapshot', () => {
+          expect(shallow(<CallbackContainer {...props} />))
+            .toMatchSnapshot();
+        });
+      });
     });
   });
 });
-
-
-

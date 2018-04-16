@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { CallbackPage } from '../components/pages';
 import callbackActions from '../actions/callback';
 
 export class CallbackContainer extends Component {
   componentDidMount() {
     this.props.getToken(this.props.match.params.provider);
-  };
+  }
 
-  render(windowObject = window) {
+  render() {
     if (this.props.success) {
-      windowObject.close();
-    };
+      window.close();
+    }
 
     return (
-      <CallbackPage />
+      <CallbackPage 
+        error={this.props.failure} 
+      />
     );
-  };
-};
+  }
+}
 
 export function mapStateToProps(state) {
   return {
     success: state.callback.success,
     failure: state.callback.failure,
   };
-};
+}
 
 export function mapDispatchToState(dispatch) {
   return {
@@ -33,7 +34,7 @@ export function mapDispatchToState(dispatch) {
       dispatch(callbackActions.getToken(provider));
     },
   };
-};
+}
 
 export default 
-  connect(mapStateToProps, mapDispatchToState)(CallbackContainer);
+connect(mapStateToProps, mapDispatchToState)(CallbackContainer);

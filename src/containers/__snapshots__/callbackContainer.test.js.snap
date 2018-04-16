@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CallbackContainer when rendering matches snapshot 1`] = `<_default />`;
+exports[`CallbackContainer when rendering when unsuccessful with error matches snapshot 1`] = `<_default />`;
+
+exports[`CallbackContainer when rendering when unsuccessful with no error matches snapshot 1`] = `<_default />`;
