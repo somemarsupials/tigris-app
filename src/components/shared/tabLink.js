@@ -9,4 +9,4 @@ export default function (props) {
   return (
     <a onClick={handler}>{props.show}</a>
   );
-};
+}

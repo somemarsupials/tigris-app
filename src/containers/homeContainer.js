@@ -6,5 +6,5 @@ export default class HomeContainer extends Component {
     return (
       <HomePage {...this.props} />
     );
-  };
+  }
 }
