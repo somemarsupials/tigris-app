@@ -1,16 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App matches snapshot 1`] = `
-<BrowserRouter>
-  <div>
-    <_default />
-    <div>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
-    </div>
+<HashRouter>
+  <div
+    className="main"
+  >
+    <Route
+      component={[Function]}
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/auth/:provider/callback"
+    />
   </div>
-</BrowserRouter>
+</HashRouter>
 `;

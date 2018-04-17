@@ -1,18 +1,27 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { HomeContainer } from './containers';
+import { HashRouter, Route } from 'react-router-dom';
+import { HomeContainer, CallbackContainer } from './containers';
 import { SiteHeader } from './components/header';
+import './css/main.css';
 
-
-export const App = function (props) {
+export const App = function () {
   return (
-    <BrowserRouter>
-      <div>
-        <SiteHeader />
-        <div>
-          <Route exact path="/" component={HomeContainer} />
-        </div>
+    <HashRouter>
+      <div className="main">
+        <Route
+          component={SiteHeader}
+        />
+        <Route 
+          exact 
+          path="/" 
+          component={HomeContainer} 
+        />
+        <Route 
+          exact
+          path="/auth/:provider/callback" 
+          component={CallbackContainer} 
+        />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
